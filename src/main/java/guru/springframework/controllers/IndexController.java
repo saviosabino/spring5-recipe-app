@@ -14,7 +14,7 @@ public class IndexController {
 	public String getIndexPage(Model model) {
 		
 		this.counter = counter + 1;
-		System.out.println("controller requested: index. times:" + counter);
+		System.out.println("controller requested: index. timess:" + counter);
 		model.addAttribute("counter", counter);
 		
 		return "index";
