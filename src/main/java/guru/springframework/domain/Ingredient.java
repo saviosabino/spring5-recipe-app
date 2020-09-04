@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 
 import javax.persistence.*;
 
+@Entity
 public class Ingredient {
 	
 	@Id
