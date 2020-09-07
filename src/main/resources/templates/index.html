@@ -10,5 +10,15 @@
 		<span th:text="${counter}">xx</span> 
 		times. Since last restart.
 	</h2>
+	<table>
+		<tr>
+			<th>Id</th>
+			<th>Descritption</th>
+		</tr>
+		<tr th:each="recipe : ${recipes}">
+			<td th:text="${recipe.id}">123</td>
+			<td th:text="${recipe.description}">Tasty Goodness</td>
+		</tr>
+	</table>
 </body>
 </html>
