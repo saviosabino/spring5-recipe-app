@@ -11,8 +11,10 @@ import org.springframework.stereotype.Component;
 
 import guru.springframework.domain.*;
 import guru.springframework.repositories.*;
+import lombok.extern.slf4j.Slf4j;
 
 @Component
+@Slf4j
 public class RecipeBootstrap  implements ApplicationListener<ContextRefreshedEvent>{
 
 	private final CategoryRepository categoryRepository;
@@ -27,6 +29,7 @@ public class RecipeBootstrap  implements ApplicationListener<ContextRefreshedEve
 
 	@Override
 	public void onApplicationEvent(ContextRefreshedEvent event) {
+		log.debug("loading springdata");
 		recipeRepository.saveAll(getRecipes());		
 	}
 	

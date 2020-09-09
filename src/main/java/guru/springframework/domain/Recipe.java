@@ -6,9 +6,11 @@ import java.util.Set;
 import javax.persistence.*;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Entity
-@Data
+@Data()
+@EqualsAndHashCode(exclude = {"difficulty", "image","notes", "categories", "ingredients"})
 public class Recipe {
 
 	@Id
