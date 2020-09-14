@@ -1,33 +1,35 @@
 package guru.springframework.domain;
 
-import static org.junit.jupiter.api.Assertions.*;
+
+
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-class CategoryTest {
+public class CategoryTest {
 
 	Category category;
 	
 	@Before
-	void setUp() throws Exception {
+	public void setUp() throws Exception {
 		category = new Category();
 	}
 
 	@Test
-	void testGetId() {
+	public void testGetId() {
 		Long idValue = 4L;
 		category.setId(idValue);
 		assertEquals(idValue, category.getId());
 	}
 
 	@Test
-	void testGetDescription() throws Exception {
+	public void testGetDescription() throws Exception {
 		
 	}
 
 	@Test
-	void testGetRecipes() {
+	public void testGetRecipes() {
 		
 	}
 
