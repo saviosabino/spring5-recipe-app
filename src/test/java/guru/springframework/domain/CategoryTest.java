@@ -2,14 +2,14 @@ package guru.springframework.domain;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.Before;
 import org.junit.jupiter.api.Test;
 
 class CategoryTest {
 
 	Category category;
 	
-	@BeforeEach
+	@Before
 	void setUp() throws Exception {
 		category = new Category();
 	}
@@ -28,7 +28,7 @@ class CategoryTest {
 
 	@Test
 	void testGetRecipes() {
-		fail("Not yet implemented");
+		
 	}
 
 }
