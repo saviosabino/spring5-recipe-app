@@ -6,7 +6,7 @@ orbs:
 executors:
   ojdk11:
     docker:
-      - image: 'cimg/openjdk:11.0'
+      - image: cimg/openjdk:11.0
 workflows:
   maven_test:
     jobs:
