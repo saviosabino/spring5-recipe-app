@@ -25,12 +25,9 @@ public class CategoryTest {
 
 	@Test
 	public void testGetDescription() throws Exception {
-		
-	}
-
-	@Test
-	public void testGetRecipes() {
-		
+		String desc = "cat1";
+		category.setDescription(desc);
+		assertEquals(desc, category.getDescription());
 	}
 
 }
