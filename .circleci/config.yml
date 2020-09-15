@@ -11,4 +11,4 @@ workflows:
   maven_test:
     jobs:
       - maven/test:
-        executor: ojdk11
+          executor: ojdk11
