@@ -26,9 +26,9 @@ public class UnitOfMeasureRepositoryIT {
 
 	@Test
 	public void testFindByDescription() {
+		System.out.println("running integration tests");
 		Optional<UnitOfMeasure> uomOptional = 
-		
-		unitOfMeasureRepository.findByDescription("Teaspoon");
+				unitOfMeasureRepository.findByDescription("Teaspoon");
 		assertEquals("Teaspoon", uomOptional.get().getDescription());
 	}
 	
