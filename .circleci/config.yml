@@ -20,13 +20,13 @@ jobs:
           mvn dependency:go-offline "$@"
         name: Install Dependencies
         working_directory: ''
-    - run: mvn install -DskipTests
+    #- run: mvn install -DskipTests
     - run:
         command: |
           if [ -n "" ]; then
             set -- "$@" --settings ""
           fi
-          mvn integration-test "$@"
+          mvn verify "$@" #integration-test
         name: Run Tests
         working_directory: ''
     - save_cache:
