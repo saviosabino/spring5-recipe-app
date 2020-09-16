@@ -1,14 +1,57 @@
-version: 2.1
-
-orbs:
-  maven: circleci/maven@1.0.2
-
-executors:
-  ojdk11:
+# Orb 'circleci/maven@1.0.2' resolved to 'circleci/maven@1.0.2'
+version: 2
+jobs:
+  maven/test:
     docker:
-      - image: cimg/openjdk:11.0
+    - image: cimg/openjdk:11.0
+    steps:
+    - checkout
+    - run:
+        command: find . -name 'pom.xml' | sort | xargs cat > /tmp/maven_cache_seed
+        name: Generate Cache Checksum
+        working_directory: $CIRCLE_WORKING_DIRECTORY/
+    - restore_cache:
+        key: maven-{{ checksum "/tmp/maven_cache_seed" }}
+    - run:
+        command: |
+          if [ -n "" ]; then
+            set -- "$@" --settings ""
+          fi
+          mvn dependency:go-offline "$@"
+        name: Install Dependencies
+        working_directory: ''
+    - run:
+        command: |
+          if [ -n "" ]; then
+            set -- "$@" --settings ""
+          fi
+          mvn integration-test "$@"
+        name: Run Tests
+        working_directory: ''
+    - save_cache:
+        key: maven-{{ checksum "/tmp/maven_cache_seed" }}
+        paths:
+        - ~/.m2
+    - store_test_results:
+        path: target/surefire-reports
 workflows:
   maven_test:
     jobs:
-      - maven/test:
-          executor: ojdk11
+    - maven/test
+  version: 2
+
+# Original config.yml file:
+# version: 2.1
+# 
+# orbs:
+#   maven: circleci/maven@1.0.2
+# 
+# executors:
+#   ojdk11:
+#     docker:
+#       - image: cimg/openjdk:11.0
+# workflows:
+#   maven_test:
+#     jobs:
+#       - maven/test:
+#           executor: ojdk11
