@@ -20,6 +20,7 @@ jobs:
           mvn dependency:go-offline "$@"
         name: Install Dependencies
         working_directory: ''
+    - run: mvn install -DskipTests
     - run:
         command: |
           if [ -n "" ]; then
