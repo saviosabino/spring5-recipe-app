@@ -13,8 +13,8 @@ import java.util.Set;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.eq;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
@@ -34,7 +34,7 @@ public class IndexControllerTest {
 	Model model;
 	IndexController controller;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		MockitoAnnotations.initMocks(this);
 		controller = new IndexController(recipeService);

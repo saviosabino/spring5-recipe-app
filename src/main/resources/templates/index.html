@@ -32,27 +32,21 @@
 							<tr>
 								<th>Id</th>
 								<th>Descritption</th>
+								<th>View</th>
 							</tr>
 						</thead>
 						<tr th:remove="all">
-							<td th:text="${recipe.id}">12334</td>
-							<td th:text="${recipe.description}">Tast Goodness1</td>
+							<td >12334</td>
+							<td >Tast Goodness1</td>
 						</tr>
 						<tr th:remove="all">
-							<td th:text="${recipe.id">22333</td>
-							<td th:text="${recipe.description}">Tast Goodness22</td>
+							<td >22333</td>
+							<td >Tast Goodness22</td>
 						</tr>
-						<tr th:each="recipe : ${recipes}">
-                        	<td th:text="${recipe.id+2}">334</td>
-                            <td th:text="${recipe.description} +' 2'">Tasty Goodnees 3</td>
-                        </tr>
                         <tr th:each="recipe : ${recipes}">
 							<td th:text="${recipe.id}">34123</td>
 							<td th:text="${recipe.description}">Tasty Goodness33</td>
-						</tr>
-						<tr th:remove="all">
-							<td th:text="${recipe.id}">12334</td>
-							<td th:text="${recipe.description}">Tast Goodness1</td>
+							<td><a href="#" th:href="@{'/recipe/show/' + ${recipe.id}}">View</a></td>
 						</tr>
 					</table>
 					
