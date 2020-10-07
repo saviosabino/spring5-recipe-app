@@ -11,7 +11,7 @@ import guru.springframework.domain.UnitOfMeasure;
 class UnitOfMeasureCommandToUnitOfMeasureTest {
 	
 	public static final String DESCRIPTION = "description";
-    public static final Long LONG_VALUE = new Long(1L);
+    public static final Long LONG_VALUE = Long.valueOf(1L);
 
     UnitOfMeasureCommandToUnitOfMeasure converter;
 

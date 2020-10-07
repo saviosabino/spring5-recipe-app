@@ -9,7 +9,7 @@ import guru.springframework.commands.CategoryCommand;
 import guru.springframework.domain.Category;
 
 public class CategoryCommandToCategoryTest {
-	public static final Long ID_VALUE = new Long(1L);
+	public static final Long ID_VALUE =  Long.valueOf(1L);
     public static final String DESCRIPTION = "description";
     
     CategoryCommandToCategory converter;
