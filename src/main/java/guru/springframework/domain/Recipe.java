@@ -5,11 +5,13 @@ import java.util.Set;
 
 import javax.persistence.*;
 
-import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 @Entity
-@Data()
 @EqualsAndHashCode(exclude = {"difficulty", "image","notes", "categories", "ingredients"})
 public class Recipe {
 

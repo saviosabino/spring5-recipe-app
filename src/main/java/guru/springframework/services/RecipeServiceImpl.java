@@ -22,7 +22,9 @@ public class RecipeServiceImpl implements RecipeService {
 	private final RecipeCommandToRecipe recipeCommandToRecipe;
     private final RecipeToRecipeCommand recipeToRecipeCommand;
 
-    public RecipeServiceImpl(RecipeRepository recipeRepository, RecipeCommandToRecipe recipeCommandToRecipe, RecipeToRecipeCommand recipeToRecipeCommand) {
+    public RecipeServiceImpl(RecipeRepository recipeRepository, 
+    		RecipeCommandToRecipe recipeCommandToRecipe, 
+    		RecipeToRecipeCommand recipeToRecipeCommand) {
         this.recipeRepository = recipeRepository;
         this.recipeCommandToRecipe = recipeCommandToRecipe;
         this.recipeToRecipeCommand = recipeToRecipeCommand;
