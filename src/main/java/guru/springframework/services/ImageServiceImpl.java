@@ -21,7 +21,6 @@ public class ImageServiceImpl implements ImageService {
         this.recipeRepository = recipeService;
     }
 
-
 	@Override
 	@Transactional
     public void saveImageFile(Long recipeId, MultipartFile file) {
