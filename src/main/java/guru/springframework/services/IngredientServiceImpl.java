@@ -41,7 +41,7 @@ public class IngredientServiceImpl  implements IngredientService {
         Optional<Recipe> recipeOptional = recipeRepository.findById(recipeId);
 
         if (!recipeOptional.isPresent()) {
-            throw new NotFoundException("Recipe Not Found");
+        	throw new NotFoundException("Recipe Not Found. For ID value: " + recipeId.toString() );
         }
 
         Recipe recipe = recipeOptional.get();
@@ -51,7 +51,7 @@ public class IngredientServiceImpl  implements IngredientService {
                 .map( ingredient -> ingredientToIngredientCommand.convert(ingredient)).findFirst();
 
         if(!ingredientCommandOptional.isPresent()){
-        	throw new NotFoundException("Recipe Not Found");
+        	throw new NotFoundException("Ingredient Not Found. For ID value: " + ingredientId.toString() );
         }
 
         return ingredientCommandOptional.get();
