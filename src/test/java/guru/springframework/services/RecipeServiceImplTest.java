@@ -61,16 +61,17 @@ class RecipeServiceImplTest {
 		verify(recipeRepository, never()).findAll();
 	}
 
-	@Test(expected = NotFoundException.class)
+	@Test
 	public void getRecipeByIdTestNotFound() throws Exception {
 
 		Optional<Recipe> recipeOptional = Optional.empty();
 
 		when(recipeRepository.findById(anyLong())).thenReturn(recipeOptional);
 
-		Recipe recipeReturned = recipeService.findById(1L);
-
-		//should go boom
+		assertThrows(NotFoundException.class, () -> {
+			Recipe recipeReturned = recipeService.findById(1L);
+		});
+		
 	}
 
 	@Test
