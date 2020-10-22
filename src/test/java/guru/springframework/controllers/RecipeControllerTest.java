@@ -63,16 +63,16 @@ class RecipeControllerTest {
 		 when(recipeService.findById(anyLong())).thenThrow(NotFoundException.class);
 
 	        mockMvc.perform(get("/recipe/1/show"))
-	                .andExpect(status().isNotFound())
-	                .andExpect(view().name("404error"));
+	              .andExpect(status().isNotFound())
+	              .andExpect(view().name("404error"));
 	}
 	
 	@Test
     public void testGetRecipeNumberFormatException() throws Exception {
 
         mockMvc.perform(get("/recipe/asdf/show"))
-                .andExpect(status().isBadRequest())
-                .andExpect(view().name("400error"));
+              .andExpect(status().isBadRequest())
+              .andExpect(view().name("400error"));
     }
 	
 	@Test
@@ -80,9 +80,9 @@ class RecipeControllerTest {
         RecipeCommand command = new RecipeCommand();
 
         mockMvc.perform(get("/recipe/new"))
-                .andExpect(status().isOk())
-                .andExpect(view().name("recipe/recipeform"))
-                .andExpect(model().attributeExists("recipe"));
+              .andExpect(status().isOk())
+              .andExpect(view().name("recipe/recipeform"))
+              .andExpect(model().attributeExists("recipe"));
     }
 
     @Test
@@ -97,8 +97,8 @@ class RecipeControllerTest {
                 .param("id", "")
                 .param("description", "some string")
                 .param("directions", "some directions"))
-                .andExpect(status().is3xxRedirection())
-                .andExpect(view().name("redirect:/recipe/2/show"));
+              .andExpect(status().is3xxRedirection())
+              .andExpect(view().name("redirect:/recipe/2/show"));
     }
     
     @Test
@@ -111,11 +111,11 @@ class RecipeControllerTest {
         mockMvc.perform(post("/recipe")
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED)
                 .param("id", "")
-
-        )
-                .andExpect(status().isOk())
-                .andExpect(model().attributeExists("recipe"))
-                .andExpect(view().name("recipe/recipeform"));
+                .param("cookTime", "3000")
+        		)
+              .andExpect(status().isOk())
+              .andExpect(model().attributeExists("recipe"))
+              .andExpect(view().name("recipe/recipeform"));
     }
 
     @Test
